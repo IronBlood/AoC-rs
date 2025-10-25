@@ -1,0 +1,81 @@
+use regex::Regex;
+use std::fs;
+use std::path::Path;
+
+mod y2017 {
+    pub mod d01;
+}
+
+fn load_input(year: &str, day: &str) -> String {
+    let path = format!("src/y{}/d{}/input.txt", year, day);
+    fs::read_to_string(Path::new(&path))
+        .expect("Failed to read input file")
+        .trim()
+        .to_string()
+}
+
+fn exec(year: &str, day: &str) {
+    let input = load_input(year, day);
+    match (year, day) {
+        ("2017", "01") => y2017::d01::run(&input),
+        _ => println!("Unimplemented"),
+    }
+}
+
+fn scaffold(year: &str, day: &str) {
+    let folder = format!("src/y{}/d{}", year, day);
+    let file_path = format!("{}/mod.rs", folder);
+    let path = Path::new(&file_path);
+
+    if path.exists() {
+        eprintln!("{} already exists, skipping.", file_path);
+        return;
+    }
+
+    fs::create_dir_all(&folder).expect("Failed to create directories");
+    let template = r##"pub fn run(input: &str) {
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn dummy() {
+        assert_eq!(2 + 2, 4);
+    }
+}
+"##;
+    fs::write(&file_path, template).expect("Failed to write mod.rs");
+    println!("Scaffolded {}", file_path);
+}
+
+fn parse_date(arg: &str) -> Option<(String, String)> {
+    let re = Regex::new(r"^(\d{4})-(\d{2})$").unwrap();
+    re.captures(arg)
+        .map(|caps| (caps[1].to_string(), caps[2].to_string()))
+}
+
+fn main() {
+    let args: Vec<String> = std::env::args().collect();
+    if args.len() < 2 {
+        eprintln!("Usage: {} YYYY-DD [s]", args[0]);
+        return;
+    }
+
+    let (year, day) = match parse_date(&args[1]) {
+        Some(pair) => pair,
+        None => {
+            eprintln!("Invalid date format");
+            return;
+        }
+    };
+
+    if args.len() == 2 {
+        exec(&year, &day);
+    } else if args.len() == 3 && args[2] == "s" {
+        scaffold(&year, &day);
+    } else {
+        eprintln!("Invalid argument pattern");
+    }
+}
