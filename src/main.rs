@@ -4,6 +4,7 @@ use std::path::Path;
 
 mod y2017 {
     pub mod d01;
+    pub mod d25;
 }
 
 fn load_input(year: &str, day: &str) -> String {
@@ -18,6 +19,7 @@ fn exec(year: &str, day: &str) {
     let input = load_input(year, day);
     match (year, day) {
         ("2017", "01") => y2017::d01::run(&input),
+        ("2017", "25") => y2017::d25::run(&input),
         _ => println!("Unimplemented"),
     }
 }
