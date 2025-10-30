@@ -54,6 +54,7 @@ fn scaffold(year: &str, day: &str) {
 
     fs::create_dir_all(&folder).expect("Failed to create directories");
     let template = r##"pub fn run(input: &str) {
+    todo!();
 }
 
 #[cfg(test)]
@@ -61,8 +62,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn dummy() {
-        assert_eq!(2 + 2, 4);
+    fn test1() {
+        todo!();
     }
 }
 "##;
