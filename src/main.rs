@@ -13,6 +13,11 @@ mod y2017 {
     pub mod d08;
     pub mod d09;
     pub mod d10;
+    pub mod d11;
+    pub mod d12;
+    pub mod d13;
+    pub mod d14;
+    pub mod d15;
     pub mod d25;
 }
 
@@ -37,6 +42,11 @@ fn exec(year: &str, day: &str) {
         ("2017", "08") => y2017::d08::run(&input),
         ("2017", "09") => y2017::d09::run(&input),
         ("2017", "10") => y2017::d10::run(&input),
+        ("2017", "11") => y2017::d11::run(&input),
+        ("2017", "12") => y2017::d12::run(&input),
+        ("2017", "13") => y2017::d13::run(&input),
+        ("2017", "14") => y2017::d14::run(&input),
+        ("2017", "15") => y2017::d15::run(&input),
         ("2017", "25") => y2017::d25::run(&input),
         _ => println!("Unimplemented"),
     }

@@ -47,7 +47,7 @@ fn get_dense_hash(nums: &[u8]) -> Vec<u8> {
         .collect()
 }
 
-fn hash(data: &str) -> String {
+pub fn hash(data: &str) -> String {
     let mut lengths = data.as_bytes().to_vec();
     lengths.extend([17, 31, 73, 47, 23]);
 
