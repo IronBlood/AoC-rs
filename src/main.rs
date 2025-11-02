@@ -25,7 +25,7 @@ fn load_input(year: &str, day: &str) -> String {
     let path = format!("src/y{}/d{}/input.txt", year, day);
     fs::read_to_string(Path::new(&path))
         .expect("Failed to read input file")
-        .trim()
+        .trim_end()
         .to_string()
 }
 
