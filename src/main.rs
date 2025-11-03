@@ -6,6 +6,10 @@ mod lib {
     pub mod matrix;
 }
 
+mod y2016 {
+    pub mod d11;
+}
+
 mod y2017 {
     pub mod d01;
     pub mod d02;
@@ -34,6 +38,30 @@ mod y2017 {
     pub mod d25;
 }
 
+mod y2018 {
+    pub mod d14;
+}
+
+mod y2019 {
+    pub mod d18;
+}
+
+mod y2021 {
+    pub mod d17;
+    pub mod d23;
+}
+
+mod y2022 {
+    pub mod d16;
+    pub mod d17;
+    pub mod d19;
+}
+
+mod y2023 {
+    pub mod d12;
+    pub mod d18;
+}
+
 fn load_input(year: &str, day: &str) -> String {
     let path = format!("src/y{}/d{}/input.txt", year, day);
     fs::read_to_string(Path::new(&path))
@@ -45,6 +73,7 @@ fn load_input(year: &str, day: &str) -> String {
 fn exec(year: &str, day: &str) {
     let input = load_input(year, day);
     match (year, day) {
+        ("2016", "11") => y2016::d11::run(&input),
         ("2017", "01") => y2017::d01::run(&input),
         ("2017", "02") => y2017::d02::run(&input),
         ("2017", "03") => y2017::d03::run(&input),
@@ -70,6 +99,15 @@ fn exec(year: &str, day: &str) {
         ("2017", "23") => y2017::d23::run(&input),
         ("2017", "24") => y2017::d24::run(&input),
         ("2017", "25") => y2017::d25::run(&input),
+        ("2018", "14") => y2018::d14::run(&input),
+        ("2019", "18") => y2019::d18::run(&input),
+        ("2021", "17") => y2021::d17::run(&input),
+        ("2021", "23") => y2021::d23::run(&input),
+        ("2022", "16") => y2022::d16::run(&input),
+        ("2022", "17") => y2022::d17::run(&input),
+        ("2022", "19") => y2022::d19::run(&input),
+        ("2023", "12") => y2023::d12::run(&input),
+        ("2023", "18") => y2023::d18::run(&input),
         _ => println!("Unimplemented"),
     }
 }
