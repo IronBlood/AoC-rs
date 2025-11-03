@@ -6,7 +6,8 @@ fn get_root(data: &str) -> &str {
     let mut non_roots: HashSet<&str> = HashSet::new();
     let mut candidates: HashSet<&str> = HashSet::new();
     for line in data.lines() {
-        if let Some((parent, children)) = line.split_once(" -> ") {
+        if let Some((left, children)) = line.split_once(" -> ") {
+            let parent = left.split_whitespace().next().unwrap();
             if !non_roots.contains(parent) {
                 candidates.insert(parent);
             }
