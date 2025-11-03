@@ -16,6 +16,9 @@ cargo run -- 2017-01 s
 # Run unit tests for a specific day
 cargo test y2017::d01
 
+# Run unit tests for a year
+cargo test y2017
+
 # Run a solution
 cargo run -- 2017-01
 ```
