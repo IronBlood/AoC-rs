@@ -1,6 +1,6 @@
 use std::collections::VecDeque;
 
-enum Oprand {
+pub enum Oprand {
     REG(usize),
     VAL(i64),
 }

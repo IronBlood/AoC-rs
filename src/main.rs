@@ -2,6 +2,10 @@ use regex::Regex;
 use std::fs;
 use std::path::Path;
 
+mod lib {
+    pub mod matrix;
+}
+
 mod y2017 {
     pub mod d01;
     pub mod d02;
@@ -23,6 +27,10 @@ mod y2017 {
     pub mod d18;
     pub mod d19;
     pub mod d20;
+    pub mod d21;
+    pub mod d22;
+    pub mod d23;
+    pub mod d24;
     pub mod d25;
 }
 
@@ -57,6 +65,10 @@ fn exec(year: &str, day: &str) {
         ("2017", "18") => y2017::d18::run(&input),
         ("2017", "19") => y2017::d19::run(&input),
         ("2017", "20") => y2017::d20::run(&input),
+        ("2017", "21") => y2017::d21::run(&input),
+        ("2017", "22") => y2017::d22::run(&input),
+        ("2017", "23") => y2017::d23::run(&input),
+        ("2017", "24") => y2017::d24::run(&input),
         ("2017", "25") => y2017::d25::run(&input),
         _ => println!("Unimplemented"),
     }
