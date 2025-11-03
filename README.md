@@ -1,6 +1,6 @@
 # AoC-rs
 
-This project contains Java translations of my [Advent of Code solutions in JavaScript](https://github.com/IronBlood/AoC-js/), with the goal of exploring Rust features.
+This repo is a Rust version of my 2017 Advent of Code solutions, ported from my own [JavaScript answers](https://github.com/IronBlood/AoC-js/). Other years’ solutions are pulled in (and tweaked to work with my `src/main.rs`) from various folks - each one credits the original author in a comment.
 
 ## Prerequisites
 
