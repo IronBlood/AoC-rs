@@ -11,7 +11,7 @@ This project contains Java translations of my [Advent of Code solutions in JavaS
 
 ```bash
 # Scaffold files for a specific day
-cargo run -- 2017-01
+cargo run -- 2017-01 s
 
 # Run unit tests for a specific day
 cargo test y2017::d01
